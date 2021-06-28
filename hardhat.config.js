@@ -33,8 +33,10 @@ task("accounts", "Prints the list of accounts", async () => {
       accounts: ['0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80']
     },
     ropsten: {
-      url: 'https://ropsten.infura.io/v3/e3feefab130b458b9317e9a3eb272909',
-      accounts: ['0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80']
+      url: process.env.REACT_APP_ROPSTEN_ENDPOINT_URL,
+      accounts: [`0x${process.env.REACT_APP_PRIVATE_KEY}`]
+      // url: 'https://ropsten.infura.io/v3/e3feefab130b458b9317e9a3eb272909',
+      // accounts: ['0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80']
     }
   },
   solidity: "0.8.3"
