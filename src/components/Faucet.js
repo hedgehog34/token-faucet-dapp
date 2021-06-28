@@ -21,9 +21,9 @@ const Faucet = ({
       console.log('Account address: ', account);
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const contract = new ethers.Contract(tokenAddress, abi, provider);
-      const balance = await contract.balanceOf(account);
-      console.log('Balance: ', balance.toString());
-      setBalance(balance.toString());
+      const balanceInWei = await contract.balanceOf(account);
+      console.log('Balance: ', ethers.utils.formatEther(balanceInWei).toString());
+      setBalance(balanceInWei.toString());
       setShowBalance(true);
     }
   }
@@ -34,19 +34,20 @@ const Faucet = ({
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(tokenAddress, abi, signer);
-      contract.faucet(account[0], 1000000);
+      contract.faucet(account[0], ethers.utils.parseEther('1.0'));
     }
   }
-    return (
-      <>
-        <ButtonGroup>
-          <Button onClick={faucet}>Get Faucet {tokenTicker}</Button>
-          <Button onClick={getBalance} variant='warning'>Check My Balance</Button>
-        </ButtonGroup>
-        
-        {showBalance ? <Message balance={balance}/> : null} 
-      </>
-    )
+
+  return (
+    <>
+      <ButtonGroup>
+        <Button onClick={faucet}>Get Faucet {tokenTicker}</Button>
+        <Button onClick={getBalance} variant='warning'>Check My Balance</Button>
+      </ButtonGroup>
+      
+      {showBalance ? <Message balance={ethers.utils.formatEther(balance)}/> : null} 
+    </>
+  )
 }
 
 export default Faucet

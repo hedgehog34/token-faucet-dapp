@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 
 const TokenSend = ({ tokenContract: { abi }, tokenAddress, tokenTicker }) => {
   const [userAccount, setUserAccount] = useState()
-  const [amount, setAmount] = useState()
+  const [amount, setAmount] = useState('')
   const [okToSend, setOkToSend] = useState(false)
 
   // request access to the user's MetaMask account
@@ -21,7 +21,7 @@ const TokenSend = ({ tokenContract: { abi }, tokenAddress, tokenTicker }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(tokenAddress, abi, signer);
-      const transaction = await contract.transfer(userAccount, amount);
+      const transaction = await contract.transfer(userAccount, ethers.utils.parseEther(amount));
       await transaction.wait();
       console.log(`${amount} Coins successfully sent to ${userAccount}`);
     }
@@ -35,8 +35,8 @@ const TokenSend = ({ tokenContract: { abi }, tokenAddress, tokenTicker }) => {
         </Form.Group>
 
         <Form.Group controlId="formBasicAmount">
-          <Form.Label>Enter amount of to transfer</Form.Label>
-          <Form.Control onChange={e => setAmount(e.target.value)} type="number" placeholder="Enter amount" />
+          <Form.Label>Enter amount of {tokenTicker} to transfer</Form.Label>
+          <Form.Control onChange={e => setAmount(e.target.value.toString())} type="number" placeholder="Enter amount" />
         </Form.Group>
 
         <Form.Group controlId="formBasicCheckbox">
