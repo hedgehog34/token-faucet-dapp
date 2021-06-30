@@ -1,8 +1,12 @@
-.App {
+.app {
   background-color: rgba(252, 203, 250, 0.65);
   height: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.inline_link {
+  margin-left: 10px;
 }

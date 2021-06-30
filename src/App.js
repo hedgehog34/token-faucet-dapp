@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Media, ListGroup } from 'react-bootstrap'
 
-import './App.css';
+import styles from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import FCTToken from './artifacts/contracts/FCTToken.sol/FCTToken.json'
@@ -33,7 +33,7 @@ function App() {
   } = TokenInfo;
 
   return (
-    <div className="App">
+    <div className={styles.app}>
       <Container>
         <Row>
           <Col sm={12}>
@@ -51,7 +51,14 @@ function App() {
                 </p>
                 <ListGroup style={{ marginBottom: '20px' }}>
                   <ListGroup.Item>
-                    Token Address: {tokenAddress}
+                    Token Address: 
+                    <a
+                      className={styles.inline_link}
+                      href={`https://ropsten.etherscan.io/token/${tokenAddress}`}
+                      rel="noreferrer"
+                      target="_blank">
+                      {tokenAddress}
+                    </a>
                     <CopySVGIcon onClick={() => navigator.clipboard.writeText(tokenAddress)} />
                   </ListGroup.Item>
                   <ListGroup.Item>
@@ -64,7 +71,14 @@ function App() {
                   </ListGroup.Item>
                   {userAddress && (
                     <ListGroup.Item>
-                      Your Wallet Address: {userAddress}
+                      Your Wallet Address:
+                      <a
+                        className={styles.inline_link}
+                        href={`https://ropsten.etherscan.io/address/${userAddress}`}
+                        rel="noreferrer"
+                        target="_blank">
+                        {userAddress}
+                      </a>
                       <CopySVGIcon onClick={() => navigator.clipboard.writeText(userAddress)} />
                     </ListGroup.Item>
                   )}
