@@ -1,0 +1,9 @@
+.icon {
+  width: 20px;
+  fill: steelblue;
+  margin-left: 20px;
+}
+
+.icon:hover {
+  cursor: pointer;
+}

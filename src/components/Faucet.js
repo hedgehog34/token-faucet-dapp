@@ -45,7 +45,7 @@ const Faucet = ({
         <Button onClick={getBalance} variant='warning'>Check My Balance</Button>
       </ButtonGroup>
       
-      {showBalance ? <Message balance={ethers.utils.formatEther(balance)}/> : null} 
+      {showBalance ? <Message balance={ethers.utils.formatEther(balance)} onClose={() => setShowBalance(false)} /> : null} 
     </>
   )
 }
