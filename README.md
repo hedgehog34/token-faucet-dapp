@@ -1,6 +1,6 @@
 # Getting Started TKN Faucet Dapp
 
-# Pull repo
+## Pull repo
 
 ```shell
   git clone https://github.com/hedgehog34/token-faucet-dapp.git
