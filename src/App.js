@@ -49,7 +49,7 @@ function App() {
                   You're interacting with Ethereum based token - <b>{tokenName}</b>, created by Robert Jezyk for testing purposes.<br/>
                   Token is deployed to <a href="https://ropsten.etherscan.io/">Ropsten network</a>
                 </p>
-                <ListGroup style={{ marginBottom: '20px' }}>
+                <ListGroup className="mb-4">
                   <ListGroup.Item>
                     Token Address: 
                     <a
