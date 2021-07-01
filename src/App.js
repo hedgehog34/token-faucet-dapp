@@ -59,14 +59,14 @@ function App() {
                       target="_blank">
                       {tokenAddress}
                     </a>
-                    <CopySVGIcon onClick={() => navigator.clipboard.writeText(tokenAddress)} />
+                    <CopySVGIcon text={tokenAddress} />
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <a
                       href={`https://ropsten.etherscan.io/token/${tokenAddress}`}
                       rel="noreferrer"
                       target="_blank">
-                      Token on Ropsten Network
+                      View token on Ropsten Network
                     </a>
                   </ListGroup.Item>
                   {userAddress && (
@@ -79,7 +79,7 @@ function App() {
                         target="_blank">
                         {userAddress}
                       </a>
-                      <CopySVGIcon onClick={() => navigator.clipboard.writeText(userAddress)} />
+                      <CopySVGIcon text={userAddress} />
                     </ListGroup.Item>
                   )}
                 </ListGroup>
