@@ -46,8 +46,9 @@ function App() {
               <Media.Body>
                 <h5>{tokenName} - {tokenTicker}</h5>
                 <p>
-                  You're interacting with Ethereum based token - <b>{tokenName}</b>, created by Robert Jezyk for testing purposes.<br/>
-                  Token is deployed to <a href="https://ropsten.etherscan.io/">Ropsten network</a>
+                  You're interacting with Ethereum based token - <b>{tokenName}</b> faucet, created for testing purposes.<br/>
+                  Token is deployed to <a href="https://ropsten.etherscan.io/">Ropsten network</a>,
+                  and in order of interacting with it you'll need a MetaMask connected to Ropsten network
                 </p>
                 <ListGroup className="mb-4">
                   <ListGroup.Item>
